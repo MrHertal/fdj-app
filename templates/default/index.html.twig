@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% dump draws %}
+
+{% block body %}
+    <h1>Draws</h1>
+    <ul>
+        {% for draw in draws %}
+            <li>Tirage du {{ draw.drawn_at|format_date('full') }}</li>
+            <li>
+                <ul>
+                    {% for result in draw.results %}
+                        <li>{{ result.type }} {{ result.value }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    {% for addon in draw.addons %}
+                        <li>{{ addon.type }} {{ addon.value }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
