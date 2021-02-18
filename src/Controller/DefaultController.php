@@ -31,8 +31,13 @@ class DefaultController extends AbstractController
             $logger->error($e->getMessage());
         }
 
-        return $this->render('default/index.html.twig', [
+        $response = $this->render('default/index.html.twig', [
             'draws' => $draws,
         ]);
+
+        $response->setPublic();
+        $response->setMaxAge(600);
+
+        return $response;
     }
 }
