@@ -1,3 +1,99 @@
 body {
-    background-color: lightgray;
+    font-family: Metropolis-Regular, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    margin: 4rem 0;
+    padding: 0;
+    text-align: center;
+}
+
+h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.draw {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .draw {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.draw-picture {
+    margin: 0 2rem 2rem 0;
+}
+
+.draw-picture img {
+    width: 133px;
+    height: 37px;
+}
+
+@media only screen and (max-width: 600px) {
+    .draw-contents {
+        width: 100%;
+    }
+}
+
+.subtitle {
+    margin-top: 10px;
+    color: #404040;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.results li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 8px 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+}
+
+.results li.number {
+    background: #001367;
+}
+
+.results li.special {
+    background: #f5cf5e;
+}
+
+.addons {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.addons li {
+    display: flex;
+    border-radius: 50px;
+    border: 1px solid #e3f0ff;
+    padding: 7px 15px;
+}
+
+.addons li .type {
+    padding-right: 10px;
+    color: #043487;
+}
+
+.addons li .value {
+    font-weight: bold;
 }

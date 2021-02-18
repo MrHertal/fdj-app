@@ -3,24 +3,35 @@
 {% dump draws %}
 
 {% block body %}
-    <h1>Derniers résultats du tirage Euromillions</h1>
-    <ul>
-        {% for draw in draws %}
-            <li>Tirage du {{ draw.drawn_at|format_date('full') }}</li>
-            <li>
-                <ul>
-                    {% for result in draw.results %}
-                        <li>{{ result.type }} {{ result.value }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
-            <li>
-                <ul>
-                    {% for addon in draw.addons %}
-                        <li>{{ addon.type }} {{ addon.value }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>Tirages Euromillions</h1>
+    </header>
+    <main>
+        <div class="draws">
+            {% for draw in draws %}
+                <section class="draw">
+                    <div class="draw-picture">
+                        <img src="{{ asset('build/images/euromillions.png') }}" alt="Euromillions">
+                    </div>
+                    <div class="draw-contents">
+                        <h2>Tirage du {{ draw.drawn_at|format_date('full') }}</h2>
+                        <p class="subtitle">Résultats EuroMillions - My Million</p>
+                        <ul class="results">
+                            {% for result in draw.results %}
+                                <li class="{{ result.type }}">{{ result.value }}</li>
+                            {% endfor %}
+                        </ul>
+                        <ul class="addons">
+                            {% for addon in draw.addons %}
+                                <li>
+                                    <span class="type">My Million</span>
+                                    <span class="value">{{ addon.value }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+            {% endfor %}
+        </div>
+    </main>
 {% endblock %}
