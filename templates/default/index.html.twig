@@ -3,7 +3,7 @@
 {% dump draws %}
 
 {% block body %}
-    <h1>Draws</h1>
+    <h1>Derniers résultats du tirage Euromillions</h1>
     <ul>
         {% for draw in draws %}
             <li>Tirage du {{ draw.drawn_at|format_date('full') }}</li>
